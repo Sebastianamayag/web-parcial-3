@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect,useState } from 'react';
+import { fetchP } from './helpers/fetch';
 
-function App() {
+export const App=() => {
+  const [data,saveData]=useState([]);
+  useEffect(() => {
+    traerData()
+    .then(res=>{
+      console.log(data);
+    })
+  }, []);
+
+  const traerData=async()=>{
+    const resp= await fetchP();
+    const body=await resp.json();
+    saveData(body);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {data.map((dat,key)=>{
+        return(
+          <h1>Hola</h1>
+        )
+      })}
     </div>
   );
 }
 
-export default App;
+
