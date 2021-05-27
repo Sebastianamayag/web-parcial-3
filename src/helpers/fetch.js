@@ -1,5 +1,5 @@
 const baseUrl="https://webappinode.herokuapp.com/";
-const fetchP=(endpoint,data,method='GET')=>{
+const fetchP=(data,method='GET')=>{
     const url=`${baseUrl}`;
     if(method==='GET'){
         return fetch(`${url}`);
