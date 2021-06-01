@@ -25,11 +25,19 @@ const useStyles = makeStyles({
     marginTop: 0,
     backgroundColor: "#5EA4A6",
   },
+  logo: {
+    height: "70%",
+    width: "70%",
+    marginLeft: "20%",
+    marginTop: "10%",
+  },
   company: {
     color: "#5EA4A6",
     fontFamily: ["Spartan", " sans-serif"].join(","),
     fontSize: "15px",
     fontWeight: "bolder",
+    marginLeft: "5px",
+    marginRight: "10x",
   },
   position: {
     fontFamily: ["Spartan", "sans-serif"].join(","),
@@ -55,6 +63,32 @@ const useStyles = makeStyles({
     paddingLeft: 15,
     paddingRight: 15,
   },
+  new: {
+    backgroundColor: "#5EA4A6",
+    fontFamily: ["Spartan", "sans-serif"].join(","),
+    color: "#FFFFFF",
+    fontWeight: "bolder",
+    fontSize: "10px",
+    borderRadius: 10,
+    marginTop: 15,
+    marginLeft: 10,
+    padding: 5,
+    paddingLeft: 15,
+    paddingRight: 15,
+  },
+  feature: {
+    backgroundColor: "#000000",
+    fontFamily: ["Spartan", "sans-serif"].join(","),
+    color: "#FFFFFF",
+    fontWeight: "bolder",
+    fontSize: "10px",
+    borderRadius: 10,
+    marginTop: 15,
+    marginLeft: 10,
+    padding: 5,
+    paddingLeft: 15,
+    paddingRight: 15,
+  },
 });
 
 export const App = () => {
@@ -77,58 +111,66 @@ export const App = () => {
   return (
     <div className={classes.container}>
       <img className={classes.media} src={img} alt="Logo" />
+      <div>
+        {data.map((dat, key) => {
+          console.log(dat);
+          return (
+            <Card key={key} className={classes.root} variant="elevation">
+              <Grid container spacing={2}>
+                <Grid item xs={2}>
+                  <img className={classes.logo} alt="img" src={dat.logo} />
+                </Grid>
 
-      {data.map((dat, key) => {
-        console.log(dat);
-        return (
-          <div>
-            {data.map((dat, key) => {
-              return (
-                <Card key={key} className={classes.root} variant="elevation">
-                  <Grid container spacing={2}>
-                    <Grid item xs={2}>
-                      <img className={classes.media} alt="img" src={img} />
-                    </Grid>
-
-                    <Grid item xs={10} sm={6}>
+                <Grid item xs={10} sm={6}>
+                  <Box display="flex" flexDirection="row">
+                    <div>
                       <Box display="flex" flexDirection="row">
-                        <div>
-                          <p className={classes.company}>{dat.company}</p>
-                          <p className={classes.position}>{dat.position}</p>
+                        <p className={classes.company}>{dat.company}</p>
 
-                          <Box display="flex" flexDirection="row">
-                            <p className={classes.postedAt}>{dat.postedAt}</p>
-                            <p className={classes.postedAt}>•</p>
-                            <p className={classes.postedAt}>{dat.contract}</p>
-                            <p className={classes.postedAt}>•</p>
-                            <p className={classes.postedAt}>{dat.location}</p>
-                          </Box>
-                        </div>
-
-                        <div justifyContent="flex-end">
-                          <Box
-                            className={classes.containerLanguage}
-                            display="flex"
-                            flexDirection="row"
-                          >
-                            {dat.languages.map((dats, keyb) => {
-                              return (
-                                <div className={classes.language} key={keyb}>
-                                  <p>{dats}</p>
-                                </div>
-                              );
-                            })}
-                          </Box>
-                        </div>
+                        {dat.new === true && (
+                          <div>
+                            <p className={classes.new}>NEW!</p>
+                          </div>
+                        )}
+                        {dat.featured === true && (
+                          <div>
+                            <p className={classes.feature}>FEATURE</p>
+                          </div>
+                        )}
                       </Box>
-                    </Grid>
-                  </Grid>
-                </Card>
-              );
-            })}
-          </div>
-        );
-      })}
+                      <p className={classes.position}>{dat.position}</p>
+
+                      <Box display="flex" flexDirection="row">
+                        <p className={classes.postedAt}>{dat.postedAt}</p>
+                        <p className={classes.postedAt}>•</p>
+                        <p className={classes.postedAt}>{dat.contract}</p>
+                        <p className={classes.postedAt}>•</p>
+                        <p className={classes.postedAt}>{dat.location}</p>
+                      </Box>
+                    </div>
+
+                    <div>
+                      <Box
+                        className={classes.containerLanguage}
+                        display="flex"
+                        flexDirection="row"
+                      >
+                        {dat.languages.map((dats, keyb) => {
+                          return (
+                            <div className={classes.language} key={keyb}>
+                              <p>{dats}</p>
+                            </div>
+                          );
+                        })}
+                      </Box>
+                    </div>
+                  </Box>
+                </Grid>
+              </Grid>
+            </Card>
+          );
+        })}
+      </div>
     </div>
   );
 };
