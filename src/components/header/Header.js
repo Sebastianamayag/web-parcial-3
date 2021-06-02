@@ -1,6 +1,5 @@
 import React from 'react';
 import { makeStyles } from "@material-ui/core/styles";
-import img from "../../images/bg-header-desktop.svg";
 const useStyles = makeStyles({
     media: {
       height: "20%",
@@ -12,6 +11,6 @@ const useStyles = makeStyles({
 export const Header = () => {
     const classes = useStyles();
     return (
-        <img className={classes.media} src={img} alt="Logo" />
+        <img className={classes.media} src={"https://webappinode.herokuapp.com/images/bg-header-desktop.svg"} alt="Logo" />
     )
 }
