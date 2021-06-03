@@ -11,7 +11,7 @@ const useStyles = makeStyles({
     marginTop: 25,
     marginBottom: 25,
     flexGrow: 1,
-    boxShadow: "10px 10px 20px 1px #D6EBED"
+    boxShadow: "3px 15px 15px 1px #D6EBED"
   },
   media: {
     height: "20%",
@@ -57,6 +57,7 @@ const useStyles = makeStyles({
     margin: 5,
     paddingLeft: 15,
     paddingRight: 15,
+    borderRadius: 4
   },
   new: {
     backgroundColor: "#5EA4A6",
