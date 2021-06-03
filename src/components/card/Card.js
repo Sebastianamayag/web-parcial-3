@@ -109,7 +109,7 @@ export const CardBody = ({ data }) => {
                 )}
                 {data.featured === true && (
                   <div>
-                    <p className={classes.feature}>FEATURE</p>
+                    <p className={classes.feature}>FEATURED</p>
                   </div>
                 )}
               </Box>
