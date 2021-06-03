@@ -31,7 +31,7 @@ export const Body = () => {
       <Header />
       <div>
         {data.map((dat, key) => {
-          console.log(dat);
+          // console.log(dat);
           return (
             <CardBody data={dat} key={key}/>
           );
