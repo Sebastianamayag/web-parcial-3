@@ -32,7 +32,7 @@ const useStyles = makeStyles({
     fontSize: "15px",
     fontWeight: "bolder",
     marginLeft: "5px",
-    marginRight: "10x",
+    marginRight: "10px",
   },
   position: {
     fontFamily: ["Spartan", "sans-serif"].join(","),
