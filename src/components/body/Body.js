@@ -16,7 +16,7 @@ export const Body = () => {
 
   useEffect(() => {
     traerData().then((res) => {
-      console.log(data);
+      // console.log(data);
     });
   }, []);
 
